@@ -4,6 +4,9 @@
 # IDE
 .idea/
 
+# Personal
+settings_production.py
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
