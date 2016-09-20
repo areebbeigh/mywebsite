@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Home {% endblock %}
+{% block content %}
+    <h1>Welcome to my small corner of the web</h1>
+    <hr/>
+    <blockquote>
+        <p>
+            Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
+        </p>
+        <small>
+            <cite>Rick Osborne</cite>
+        </small>
+    </blockquote>
+    <hr/>
+    <h3>Recent Posts</h3>
+    <br/>
+    {% include "project_list.html" %}
+{% endblock %}
