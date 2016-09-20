@@ -28,6 +28,7 @@ class Project(models.Model):
         return self.name
 
     def get_absolute_url(self):
+        """ Returns the absolute URL to the project page """
         return reverse('project_detail', args=[self.id])
 
     def get_thumbnail(self):
