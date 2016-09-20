@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.urls import reverse
 
 
 def validate_only_one_instance(obj):
@@ -25,6 +26,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('project_detail', args=[self.id])
 
     def get_thumbnail(self):
         """ Returns the relative path to the project thumbnail to add as an image source on the website """

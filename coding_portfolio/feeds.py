@@ -1,5 +1,4 @@
 from django.contrib.syndication.views import Feed
-from django.urls import reverse
 
 from coding_portfolio.models import Project
 
@@ -20,4 +19,4 @@ class ProjectFeeds(Feed):
         return item.description
 
     def item_link(self, item):
-        return reverse('project_detail', args=[item.id])
+        return item.get_absolute_url()
