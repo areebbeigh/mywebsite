@@ -9,3 +9,5 @@ class ProjectSitemap(Sitemap):
     def items(self):
         return Project.objects.all()
 
+    def lastmod(self, item):
+        return item.publish_data

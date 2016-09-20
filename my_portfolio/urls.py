@@ -18,18 +18,10 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
-from django.contrib.sitemaps.views import sitemap
-
-from my_portfolio.sitemap import ProjectSitemap
-
-sitemaps = {
-    'projects': ProjectSitemap()
-}
 
 urlpatterns = [
     url(r'^', include('coding_portfolio.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     ]
 
 # Allow django to serv media files
