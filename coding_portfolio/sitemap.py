@@ -1,5 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from coding_portfolio.models import Project
+from datetime import datetime
 
 
 class ProjectSitemap(Sitemap):
@@ -10,4 +11,4 @@ class ProjectSitemap(Sitemap):
         return Project.objects.all()
 
     def lastmod(self, item):
-        return item.publish_data
+        return datetime.now()
