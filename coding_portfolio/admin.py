@@ -36,8 +36,10 @@ class ImageModelForm(forms.ModelForm):
 class BaseAdmin(admin.ModelAdmin):
     """ Base class for other model admin classes """
 
-    def image_preview(self, obj):
-        return obj.thumbnail.image_preview()
+    def get_thumbnail(self, obj):
+        return mark_safe('<img src="' + obj.get_thumbnail() + '" alt="Thumbnail" width="100px" height="100px"')
+
+    get_thumbnail.short_description = "Thumbnail"
 
 
 class ProjectAdmin(BaseAdmin):
@@ -46,15 +48,15 @@ class ProjectAdmin(BaseAdmin):
 
 
 class PlatformAdmin(BaseAdmin):
-    list_display = ('name', 'image_preview')
+    list_display = ('name', 'get_thumbnail')
 
 
 class LanguageAdmin(BaseAdmin):
-    list_display = ('name', 'image_preview')
+    list_display = ('name', 'get_thumbnail')
 
 
 class WebsiteAdmin(BaseAdmin):
-    list_display = ('name', 'url')
+    list_display = ('name', 'url', 'get_thumbnail')
 
 
 class ContactAdmin(BaseAdmin):

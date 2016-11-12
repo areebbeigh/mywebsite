@@ -36,7 +36,6 @@ class BaseModel:
     def get_thumbnail(self, is_project=False, is_website=False):
         """
         Returns the URL to the thumbnail associated with this object.
-        The thumbnail must be an Image model object.
         """
         if is_project:
             DEFAULT_THUMBNAIL = "/default_project_thumbnail.png"
@@ -46,7 +45,7 @@ class BaseModel:
             DEFAULT_THUMBNAIL = "/default_thumbnail.png"
 
         if self.thumbnail:
-            return self.thumbnail.get_image_url()
+            return self.thumbnail.get_thumbnail()
         else:
             return settings.MEDIA_URL + DEFAULT_THUMBNAIL  # Default thumbnail
 
@@ -60,7 +59,7 @@ class Image(models.Model):
     def image_preview(self):
         return mark_safe('<img src="%s" alt="Image" width="100px" height="100px" />' % self.image.url)
 
-    def get_image_url(self):
+    def get_thumbnail(self):
         return self.image.url
 
     name = models.CharField(max_length=50, help_text='Name of the image.')
