@@ -11,9 +11,9 @@
             <p>
                 {% if project.description.0 != '<' %}
                 <span style="font-size:350%;color:black;margin-right:-3px">{{project.description.0|capfirst}}</span>
-                {{project.description|slice:"1:"|safe|linebreaksbr}}
+                {{project.description|slice:"1:"|safe}}
                 {% else %}
-                {{project.description|safe|linebreaksbr}}
+                {{project.description|safe}}
                 {% endif %}
             </p>
         </div>
