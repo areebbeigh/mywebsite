@@ -1,6 +1,10 @@
 # Python compiled files
 *.pyc
 
+production
+test_db
+my_portfolio/settings.py
+
 # IDE
 .idea/
 

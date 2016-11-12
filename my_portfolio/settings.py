@@ -22,9 +22,9 @@ SITE_ID = 1
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['areeb12.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -75,11 +75,8 @@ WSGI_APPLICATION = 'my_portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'my_portfolio', 'mysql_conf.cnf'),
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'test_db'
     }
 }
 
