@@ -22,7 +22,7 @@ from django.views.static import serve
 urlpatterns = [
     url(r'^', include('coding_portfolio.urls')),
     url(r'^admin/', admin.site.urls),
-    ]
+]
 
-# Allow django to serv media files
+# Allow django to serve media files
 urlpatterns.append(url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}))
